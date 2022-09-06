@@ -51,11 +51,11 @@ public class Node {
     }
 
     public Node Tanh() {
-        var t = (MathF.Exp(2 * Value) - 1) / (MathF.Exp(2 * Value) + 1);
+        var tanh = MathF.Tanh(Value);
         
-        var result = new Node(t, new() { this }, "tanh");
+        var result = new Node(tanh, new() { this }, "tanh");
         result.BackwardFunc = () => {
-            Gradient += (1 - t*t) * result.Gradient;
+            Gradient += (1 - tanh * tanh) * result.Gradient;
         };
 
         return result;

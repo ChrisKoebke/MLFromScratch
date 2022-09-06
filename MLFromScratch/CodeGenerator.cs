@@ -17,7 +17,7 @@ public class CodeGenerator {
             for (var neuronIndex = 0; neuronIndex < layer.Neurons.Count; neuronIndex++) { 
                 var neuron = layer.Neurons[neuronIndex];
 
-                builder.Append($"var x_{layerIndex+1}_{neuronIndex} = Tanh(");
+                builder.Append($"var x_{layerIndex+1}_{neuronIndex} = MathF.Tanh(");
 
                 for (var weightIndex = 0; weightIndex < neuron.Weights.Count; weightIndex++) { 
                     var weight = neuron.Weights[weightIndex];
