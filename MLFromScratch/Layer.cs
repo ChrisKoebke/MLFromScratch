@@ -2,6 +2,8 @@
 
 public class Layer {
     public Layer(int inputs, int outputs) {
+        InputCount = inputs;
+
         Neurons = new();
         for (var i = 0; i < outputs; i++) {
             var neuron = new Neuron(inputs);
@@ -9,6 +11,7 @@ public class Layer {
         }
     }
 
+    public int          InputCount;
     public List<Neuron> Neurons;
 
     public List<Node> Parameters() {
